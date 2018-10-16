@@ -1,4 +1,4 @@
----?image=images/pymc3.png
+---?image=images/PyMC3.png
 @title[Advances in Probabilistic Programming for Data Science]
 
 **Christopher Fonnesbeck**
