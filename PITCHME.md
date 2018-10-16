@@ -1,6 +1,6 @@
----?image=images/PyMC3.png&size=contain
+---?image=images/PyMC3.png&size=80% auto
 
-@snap[west headline span-70]
+@snap[west headline @size[0.6em]
 Advances in Probabilistic Programming for Data Science
 @snapend
 
