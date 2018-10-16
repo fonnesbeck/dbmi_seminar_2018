@@ -1,9 +1,5 @@
----?color=linear-gradient(to right, #c02425, #f0cb35)
-#Advances in Probabilistic Programming with Python
-
-#### 2017 Danish Bioinformatics Conference
-
-![](images/pymc3.png)
+---?image=images/pymc3.png
+@title[Advances in Probabilistic Programming for Data Science]
 
 
 <br><br><br><br>
@@ -13,10 +9,8 @@
 *Department of Biostatistics*  
 *Vanderbilt University Medical Center*
 
----
+---?image=images/dice.jpg
 @title[**Probabilistic Programming**]
-
-![](images/dice.jpg)
 
 Note:
 PP is not new; the term is
