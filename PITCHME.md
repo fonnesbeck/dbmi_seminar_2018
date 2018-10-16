@@ -1,10 +1,6 @@
 ---?image=images/pymc3.png
 @title[Advances in Probabilistic Programming for Data Science]
 
-
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
 **Christopher Fonnesbeck**
 *Department of Biostatistics*  
 *Vanderbilt University Medical Center*
