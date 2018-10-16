@@ -1,6 +1,6 @@
 ---?image=images/PyMC3.png&size=80% auto
 
-@snap[west headline @size[0.6em]
+@snap[north headline @size[0.6em]
 Advances in Probabilistic Programming for Data Science
 @snapend
 
@@ -11,7 +11,11 @@ Advances in Probabilistic Programming for Data Science
 @snapend
 
 ---?image=images/dice.jpg
-@title[**Probabilistic Programming**]
+@title[Probabilistic Programming]
+
+@snap[west headline]
+Probabilistic Programming
+@snapend
 
 Note:
 PP is not new; the term is
