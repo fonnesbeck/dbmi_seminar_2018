@@ -13,9 +13,7 @@ Advances in Probabilistic Programming for Data Science
 ---?image=images/dice.jpg
 @title[Probabilistic Programming]
 
-@snap[west headline]
-Probabilistic Programming
-@snapend
+# @color[white](Probabilistic Programming)
 
 Note:
 PP is not new; the term is
