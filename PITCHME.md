@@ -1,6 +1,8 @@
----?color=linear-gradient(to bottom, #c02425, #f0cb35)
+---?image=images/PyMC3.png&size=contain
 
-@title[Advances in Probabilistic Programming for Data Science]
+@snap[west headline span-70]
+Advances in Probabilistic Programming for Data Science
+@snapend
 
 @snap[south-west byline]
 **Christopher Fonnesbeck**
