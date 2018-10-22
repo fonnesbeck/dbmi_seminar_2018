@@ -7,7 +7,6 @@ theme: Franziska, 9
 
 ![](images/PyMC3.png)
 
-
 **Christopher Fonnesbeck**
 *Department of Biostatistics*  
 *Vanderbilt University Medical Center*
