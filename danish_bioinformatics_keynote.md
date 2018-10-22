@@ -1,28 +1,32 @@
----?image=images/PyMC3.png&size=80% auto
+autoscale: true
+theme: Franziska, 9
 
-@snap[north-west headline @size[0.6em]
-Advances in Probabilistic Programming for Data Science
-@snapend
+#Advances in Probabilistic Programming with Python
 
-@snap[south-west byline]
+#### 2017 Danish Bioinformatics Conference
+
+![](images/PyMC3.png)
+
+
 **Christopher Fonnesbeck**
 *Department of Biostatistics*  
 *Vanderbilt University Medical Center*
-@snapend
 
----?image=images/dice.jpg
-@title[Probabilistic Programming]
+---
 
-# @color[white](**Probabilistic Programming**)
+# **Probabilistic Programming**
 
-Note:
+![](images/dice.jpg)
+
+^
 PP is not new; the term is
 A probabilistic program (PP) is any program that is partially dependent on random numbers
 - outputs are not deterministic
 - Can be expressed in any language that can describe probability models i.e. has a random number generator
 
 ---
-@title[Stochastic language "primitives"]
+
+# Stochastic language "primitives"
 
 Distribution over values:
 
@@ -45,34 +49,37 @@ p ~ Beta(1, 1)
 z ~ Bernoulli(p) # z|p
 ```
 
-Note: 
+^ 
 - building blocks are variables with stochastic properties
 - ability to draw random values from a particular distribution
 - allows for **conditioning** between variables
 - allows probability models to be specified at high level
 
 ---
-@title[**Bayesian Inference**]
+
+# **Bayesian Inference**
 
 ![original](images/bayes_whiteboard.png)
 
-Note:
+^
 PP facilitates the application of Bayes
 - Bayes interprets probabilities differently than classical statistics
 
 ---
-@title[Inverse Probability]
+
+# Inverse Probability
 
 ![150%,original](images/Expression.png)
 
-Note: 
+^ 
 - effects to causes (backwards)
 - effects are what we observe; we can use these quantities in **conditioning statements** to help determine what the causes might be
 - estimate the unknown quantities that we care about (and the nuisance parameters we don’t care about)
 
 
 ---
-@title[Why Bayes?]
+
+# Why Bayes?
 
 > The Bayesian approach is attractive because it is **useful**. Its usefulness derives in large measure from its *simplicity*. Its simplicity allows the investigation of **far more complex models** than can be handled by the tools in the classical toolbox.
 > -- *Link and Barker 2010*
@@ -81,7 +88,7 @@ Note:
 
 ![150%](images/bayes_formula.png)
 
-Note:
+^
 Probability distributions are used to characterize what we know and don’t know about unknown quantities of interest
 - Bayes formula is a rule for learning from data (the goal of machine learning)
 
@@ -89,24 +96,27 @@ Probability distributions are used to characterize what we know and don’t know
 
 ![120%](images/coinfection_posterior.png)
 
-Note:
+^
 outputs from probabilistic programs will always be in probabilistic terms, and therefore provide a measure of uncertainty associated with estimates
 
 ---
-@title[Probabilistic Programming]
+
+# Probabilistic Programming
 
 ## **in three easy steps**
 
 ---
+
 # Encode a 
-# [fit] Probability Model[Note:⚐]
+# [fit] Probability Model[^⚐]
 
 # [fit] **1**
 
-[Note:⚐]: in Python
+[^⚐]: in Python
 
 ---
-@title[Stochastic program]
+
+# Stochastic program
 
 Joint distribution of latent variables and data
 
@@ -114,7 +124,8 @@ Joint distribution of latent variables and data
 
 
 ---
-@title[Prior distribution]
+
+# Prior distribution
 
 *Quantifies the uncertainty in latent variables*
 
@@ -123,7 +134,8 @@ $$\theta \sim \text{Normal}(0, 1)$$
 ![fit](images/N01.png)
 
 ---
-@title[Prior distribution]
+
+# Prior distribution
 
 *Quantifies the uncertainty in latent variables*
 
@@ -132,7 +144,8 @@ $$\theta \sim \text{Normal}(0, 100)$$
 ![fit](images/N0100.png)
 
 ---
-@title[Prior distribution]
+
+# Prior distribution
 
 *Quantifies the uncertainty in latent variables*
 
@@ -140,11 +153,12 @@ $$\theta \sim \text{Beta}(1, 50)$$
 
 ![fit](images/B150.png)
 
-Note:
+^
 rare disease prevalence
 
 ---
-@title[$$\theta \sim \text{Lognormal}(-1.2, 0.4)$$]
+
+# $$\theta \sim \text{Lognormal}(-1.2, 0.4)$$
 
 ![right](images/Lognorm.png)
 ![left,fit](images/fly_wings.jpg)
@@ -156,37 +170,41 @@ rare disease prevalence
 ![autoplay loop](~/Downloads/TenseWeepyBlackfootedferret.mp4)
 
 ---
-@title[$$\theta \sim \text{Normal}(0.261, 0.034)$$]
+
+# $$\theta \sim \text{Normal}(0.261, 0.034)$$
 
 ![fit right](images/baseball_avg.png)
 
 ![left](images/mike-morse-7-1418x1940.jpg)
 
 ---
-@title[Likelihood function]
+
+# Likelihood function
 
 Conditions our model on the observed data
 
 # $$Pr(y|\theta)$$
 
 
-Note: 
+^ 
 Data generating mechanism
 
 ---
-@title[Likelihood function]
+
+# Likelihood function
 
 Conditions our model on the observed data
 
-# $$x \sim \text{Normal}(\mu, \sigmaNote:2)$$
+# $$x \sim \text{Normal}(\mu, \sigma^2)$$
 
 ![fit](images/normal_sample.png)
 
-Note: 
+^ 
 Data generating mechanism
 
 ---
-@title[$$x_{hits} \sim \text{Binomial}(n_{AB}, p_{hit})$$]
+
+# $$x_{hits} \sim \text{Binomial}(n_{AB}, p_{hit})$$
 
 Models the distribution of $$x$$ hits observed from $$n$$ at-bats.
 
@@ -195,42 +213,47 @@ Models the distribution of $$x$$ hits observed from $$n$$ at-bats.
 ![left](images/mike-morse-7-1418x1940.jpg)
 
 ---
-@title[$$x_{cases} \sim \text{Poisson}(\mu)$$]
+
+# $$x_{cases} \sim \text{Poisson}(\mu)$$
 
 Counts per unit time
 
 ![fit](images/poisson.png)
 
 ---
-@title[[fit] Infer Values]
+
+# [fit] Infer Values 
 ## for latent variables
 
 # [fit] **2**
 
 ---
-@title[Posterior distribution]
+
+# Posterior distribution
 
 ## $$Pr(\theta | y) \propto Pr(y|\theta) Pr(\theta)$$
 
-Note:
+^
 Prior updated with likelihood to yield posterior
 - formal approach for learning from data
 
 ---
-@title[Posterior distribution]
+
+# Posterior distribution
 
 ## $$Pr(\theta | y) = \frac{Pr(y|\theta) Pr(\theta)}{Pr(y)}$$
 
-Note:
+^
 Must normalize to obtain probability density
 - marginal likelihood or evidence
 
 ---
-@title[Posterior distribution]
+
+# Posterior distribution
 
 ## $$Pr(\theta | y) = \frac{Pr(y|\theta) Pr(\theta)}{\int_{\theta} Pr(y|\theta) Pr(\theta) d\theta}$$
 
-Note:
+^
 Requires **numerical methods** 
 
 ---
@@ -240,31 +263,32 @@ Requires **numerical methods**
 ![fit,right](images/blackbox.jpg)
 
 ---
-@title[[fit] Check your Model]
+
+# [fit] Check your Model
 
 # [fit] **3**
 
-Note:
+^
 - Model outputs are conditional on the model specification. 
 - Models are specified based on assumptions that are largely unverifiable
 
 ---
 
-@title[Model checking]
+### Model checking
 
 
 ![100%,original](images/ppc.png)
 
-Note:
+^
 - compare simulated data to observed data
 
 ---
 
-@title[WinBUGS]
+## [fit] WinBUGS
 
 ![](images/winbugs.jpg)
 
-Note:
+^
 Statisticians have been doing PP since 1990s
 - released in 1997 by Cambridge Biostatistics and Imperial College
 
@@ -272,7 +296,7 @@ Statisticians have been doing PP since 1990s
 
 ![](images/winbugs.jpg)
 
-Note:
+^
 Bayes for the masses
 - made it easy to describe and share Bayesian models
 
@@ -292,14 +316,15 @@ model {
 
 ```
 
-Note:
+^
 Allowed models to be specified using R-like syntax
 - closed source
 - object Pascal
 - DSL
 
 ---
-@title[PyMC3]
+
+# [fit] PyMC3
 
 - started in 2003
 - PP framework for fitting arbitrary probability models
@@ -313,24 +338,26 @@ Allowed models to be specified using R-like syntax
 
 #### Salvatier, Wiecki and Fonnesbeck (2016)
 
-Note: 
+^ 
 Will describe gradient-based methods later
 
 ---
-@title[Calculating Gradients in Theano]
+
+# Calculating Gradients in Theano
 
 ```python
 >>> from theano import function, tensor as tt
 ```
 
-Note: 
+^ 
 - specifying and evaluating mathematical expressions using **tensors**
 - toolkit for deep learning: similar to TensorFlow, Torch
 - Yoshua Bengio's LISA lab (now Montreal Institute for Learning Algorithms)
 - dynamic C code generation 
 
 ---
-@title[Calculating Gradients in Theano]
+
+# Calculating Gradients in Theano
 
 ```python
 >>> from theano import function, tensor as tt
@@ -339,7 +366,8 @@ Note:
 ```
 
 ---
-@title[Calculating Gradients in Theano]
+
+# Calculating Gradients in Theano
 
 ```python
 >>> from theano import function, tensor as tt
@@ -349,7 +377,8 @@ Note:
 ```
 
 ---
-@title[Calculating Gradients in Theano]
+
+# Calculating Gradients in Theano
 
 ```python
 >>> from theano import function, tensor as tt
@@ -360,7 +389,8 @@ Note:
 ```
 
 ---
-@title[Calculating Gradients in Theano]
+
+# Calculating Gradients in Theano
 
 ```python
 >>> from theano import function, tensor as tt
@@ -372,7 +402,8 @@ Note:
 ```
 
 ---
-@title[Theano graph]
+
+# Theano graph
 
 ![right](images/grad_graph.png)
 
@@ -386,9 +417,9 @@ Note:
 ```
 
 ---
-@title[Calculating Gradients in Theano]
 
-<!-- ```python, [.highlight:4] -->
+# Calculating Gradients in Theano
+
 ```python
 >>> from theano import function, tensor as tt
 >>> x = tt.dmatrix('x')
@@ -400,17 +431,18 @@ array([[ 0.04517666,  0.19661193],
        [ 0.25      ,  0.10499359]])
 ```
 
-Note:
+^
 - efficient automatic, symbolic differentiation
 
 ---
-@title[Example: Radon exposure[Note:✴︎]]
+
+# Example: Radon exposure[^✴︎]
 
 ![80%,original](images/radonTR.png)
 
-[Note:✴︎]: Gelman et al. (2013) *Bayesian Data Analysis*
+[^✴︎]: Gelman et al. (2013) *Bayesian Data Analysis*
 
-Note:
+^
 motivate with real example
 -  radioactive, colorless, odorless, tasteless noble gas
 -  primary non-smoking cause of lung cancer
@@ -419,11 +451,12 @@ motivate with real example
 
 ![250%](images/how_radon_enters.jpg)
 
-Note:
+^
 houses with basements thought to be more susceptible to contamination
 
 ---
-@title[Unpooled model]
+
+# Unpooled model
 
 Model radon in each county independently.
 
@@ -433,12 +466,13 @@ $$\epsilon_{i} \sim N(0, \sigma)$$
 
 where $$j = 1,\ldots,85$$ (counties)
 
-Note:
+^
 - simple model: assuming baseline radon levels different among counties, but basement effect the same
 - errors represent measurement error, temporal within-house variation, or variation among houses.  
 
 ---
-@title[Priors]
+
+# Priors
 
 ```python   
 with Model() as unpooled_model:
@@ -448,7 +482,7 @@ with Model() as unpooled_model:
     σ = HalfCauchy('σ', 5)
 ```
 
-Note:
+^
 - use context manager to add variables automatically to our model
 - Stochastic nodes
 - unicode in Python3!
@@ -460,7 +494,7 @@ Note:
 pymc3.model.FreeRV
 ```
 
-Note:
+^
 PP primitive types
 
 ---
@@ -472,7 +506,7 @@ pymc3.model.FreeRV
 array(-12.4318639983954)
 ```
 
-Note:
+^
 - theano tensor evaluated lazily
 
 ---
@@ -488,7 +522,8 @@ array([ -10292.91760326,   22368.53416626,
 ```
 
 ---
-@title[Transformed variables]
+
+# Transformed variables
 
 ```python
 with unpooled_model:
@@ -496,11 +531,12 @@ with unpooled_model:
     θ = α[county] + β*floor
 ```
 
-Note:
+^
 Deterministic
 
 ---
-@title[Likelihood]
+
+# Likelihood
 
 ```python
 with unpooled_model:
@@ -509,25 +545,27 @@ with unpooled_model:
 ```
 
 ---
-@title[Model graph
+
+# Model graph
 
 ![120%,original](images/simple_dag.png)
 
 ---
-@title[**Calculating Posteriors**]
+
+# **Calculating Posteriors**
 
 ![300%](images/questionmark.png)
 
-<br>
 ## [fit] $$Pr(\theta | y) \propto Pr(y|\theta) Pr(\theta)$$
 
-Note:
+^
 Obstacle!  
 - calculating posterior distributions is analytically impossible
 - calculating them numerically is challenging: 87 parameters in this model!
 
 ---
-@title[Bayesian approximation]
+
+# Bayesian approximation
 
 - Maximum *a posteriori* (MAP) estimate
 - Laplace (normal) approximation
@@ -536,21 +574,23 @@ Obstacle!
 - Sampling importance resampling (SIR)
 - Approximate Bayesian Computing (ABC)
 
-Note:
+^
 Variety of ways, adequacy depends on model and objectives
 
 ---
-@title[MCMC]
+
+# MCMC
 
 Markov chain Monte Carlo simulates a **Markov chain** for which some function of interest is the **unique, invariant, limiting** distribution.
 
 ![](images/trace.png)
 
-Note:
+^
 **dependent** samples
 
 ---
-@title[MCMC]
+
+# MCMC
 
 Markov chain Monte Carlo simulates a **Markov chain** for which some function of interest is the **unique, invariant, limiting** distribution.
 
@@ -563,19 +603,19 @@ $$\pi(x)Pr(y|x) = \pi(y) Pr(x|y)$$
 
 ---
 
-@title[Metropolis sampling]
+### Metropolis sampling
 
 ![120% original](images/Metropolis.png)
 
 ---
 
-@title[Metropolis sampling[Note:**]]
+### Metropolis sampling[^**]
 
 ![autoplay loop 100%](images/metropolis.mp4)
 
-[Note:**]: 2000 iterations, 1000 tuning
+[^**]: 2000 iterations, 1000 tuning
 
-Note:
+^
 - workhorse algorithm
 - performs poorly for larger models
 - convergence issues
@@ -583,7 +623,8 @@ Note:
 - optimal acceptance rate is 24%
 
 ---
-@title[Hamiltonian Monte Carlo]
+
+# Hamiltonian Monte Carlo
 
 Uses a *physical analogy* of a frictionless particle moving on a hyper-surface
 
@@ -592,9 +633,9 @@ Requires an *auxiliary variable* to be specified
 - position (unknown variable value)
 - momentum (auxiliary)
 
-$$\mathcal{H}(s, \phi) = E(s) + K(\phi) = E(s) + \frac{1}{2}(\sum_i)\phi_iNote:2$$
+$$\mathcal{H}(s, \phi) = E(s) + K(\phi) = E(s) + \frac{1}{2}(\sum_i)\phi_i^2$$
 
-Note:
+^
 Takes advantage of model gradient information to improve proposals
 - emulates Hamitonian dynamics on a Euclidean manifold
 - sum of potential and kinetic energy
@@ -602,16 +643,14 @@ Takes advantage of model gradient information to improve proposals
 
 ---
 
-@title[Hamiltonian Dynamics]
+## Hamiltonian Dynamics
 
-<br>
 $$\frac{ds_i}{dt} = \frac{\partial \mathcal{H}}{\partial \phi_i} = \phi_i$$
-<br>
 $$\frac{d\phi_i}{dt} = - \frac{\partial \mathcal{H}}{\partial s_i} = - \frac{\partial E}{\partial s_i}$$
 
 ![right fit](images/hamiltoniandynamics.gif)
 
-Note: 
+^ 
 This transformation preserves volume and is reversible. 
 The chain by itself is not ergodic , since simulating the dynamics maintains a
 fixed Hamiltonian $\mathcal{H}(s,\phi)$. HMC thus alternates Hamiltonian
@@ -619,30 +658,33 @@ dynamic steps, with Gibbs sampling of the velocity.
 
 
 ---
-@title[Hamiltonian MC]
+
+# Hamiltonian MC
 
 1.  Sample a **new velocity** from univariate Gaussian
-2.  Perform `n` **leapfrog steps** to obtain new state $$\thetaNote:{\prime}$$
-3.  Perform **accept/reject** move of $$\thetaNote:{\prime}$$
+2.  Perform `n` **leapfrog steps** to obtain new state $$\theta^{\prime}$$
+3.  Perform **accept/reject** move of $$\theta^{\prime}$$
 
 ![](http://d.pr/i/eL8O+)
 
-Note:
+^
 - leapfrog steps discretize the continuous Hamiltonian dynamics
 
 ---
-@title[Hamiltonian MC[Note:**]]
+
+# Hamiltonian MC[^**]
 
 ![autoplay loop 100%](images/nuts.mp4)
 
 ---
-@title[No U-Turn Sampler (NUTS)]
+
+# No U-Turn Sampler (NUTS)
 
 *Hoffmann and Gelman (2014)*
 
 ![](http://d.pr/i/ROEK+)
 
-Note:
+^
 - Extension of HMC that adaptively selects path lengths
 - also sets leapfrog step size (epsilon)
 
@@ -660,27 +702,30 @@ Note:
 
 ![150%](images/unpooled.png)
 
-Note:
+^
 - model overfits counties with sparse data
 - neither of these models are satisfactory:
 - if we are trying to identify high-radon counties, pooling is useless
 - we do not trust extreme unpooled estimates produced by models using few observations
 
 ---
-@title[Non-hierarchical models]
+
+# Non-hierarchical models
 
 ![left fit original](images/pooled.png)
 
 ![right fit original](images/unpooled_parameters.png)
 
 ---
-@title[Hierarchical model]
+
+# Hierarchical model
 
 ![original inline](images/partially_pooled_parameters.png)
 
 
 ---
-@title[Partial pooling model]
+
+# Partial pooling model
 
 ```python
 with Model() as partial_pooling:
@@ -707,24 +752,26 @@ with Model() as partial_pooling:
 
 ![150%](images/partial_pooling.png)
 
-Note:
+^
 - Accounting for natural hierarchical structure of observational data
 - Estimation of coefficients for (under-represented) groups
 - Incorporating individual- and group-level information when estimating group-level coefficients
 - Allowing for variation among individual-level coefficients across groups
 
 ---
-@title[Variational Inference]
+
+# Variational Inference
 
 ![fit,original](images/vi.png)
 
-Note:
+^
 - even with more sophisticated algorithms, MCMC can be **slow**
 - approximate unkown posterior with a simple, known distribution
 - transform and select values of its parameters that make it as similar as possible to posterior
 
 ---
-@title[Variational Inference]
+
+# Variational Inference
 
 Variational inference minimizes the **Kullback-Leibler divergence**
 
@@ -735,20 +782,21 @@ $$\begin{eqnarray}
 
 from approximate distributions, but we can't calculate the true posterior distribution.
 
-Note: 
+^ 
 Changes problem from MC sampling problem to **optimization** problem
 - but, KL includes the posterior in its formulation; can't optimize directly
 
 ---
-@title[Evidence Lower Bound]
+
+# Evidence Lower Bound 
 (ELBO)
 
-<br><br>
+
 $$
 \mathbb{KL}(\color{purple}{q(\theta)} \parallel \color{red}{p(\theta\ |\ \mathcal{D})}) = -(\underbrace{\mathbb{E}_q(\log \color{blue}{p(\mathcal{D}, \theta))} - \mathbb{E}_q(\color{purple}{\log q(\theta)})}_{\color{orange}{\textrm{ELBO}}}) + \log \color{green}{p(\mathcal{D})}
 $$
 
-Note: 
+^ 
 Minimizing the Kullback-Leibler divergence is equivalent to maximizing the evidence lower bound
 This only requires the joint distribution (which is just likelihood times prior)
 BUT:
@@ -756,21 +804,22 @@ BUT:
 - support-matching constraint
 
 ---
-@title[ADVI[Note:*]]
+
+# ADVI[^*]
 
 ![100%,original](images/advi.png)
 
-[Note:*]: Kucukelbir, A., Tran, D., Ranganath, R., Gelman, A., & Blei, D. M. (2016, March 2). Automatic Differentiation Variational Inference. arXiv.org.
+[^*]: Kucukelbir, A., Tran, D., Ranganath, R., Gelman, A., & Blei, D. M. (2016, March 2). Automatic Differentiation Variational Inference. arXiv.org.
 
 ---
 
-@title[Maximizing the ELBO]
+### Maximizing the ELBO
 
 ![140%,original](images/elbo.png)
 
 ---
 
-@title[Estimating `Beta(147, 255)` posterior]
+#### Estimating `Beta(147, 255)` posterior
 
 ![130%,original](images/advi_estimates.png)
 
@@ -825,13 +874,14 @@ traceplot(approx_sample, varnames=['mu_a', 'σ_a'])
 ![fit](images/sample_kde.png)
 
 ---
-@title[Normalizing flows[Note:@]]
+
+## Normalizing flows[^@]
 
 ![100% original](images/nf.png)
 
-[Note:@]: Rezende & Mohamed 2016
+[^@]: Rezende & Mohamed 2016
 
-Note:
+^
 Gaussian and uniform approximating distributions, planar and radial transformations
 
 ---
@@ -851,7 +901,8 @@ trace = nf.approx.sample(5000)
 ![70% original inline](images/nf_post.png)
 
 ---
-@title[Minibatch ADVI]
+
+# Minibatch ADVI
 
 ```python
 minibatch_x = pm.Minibatch(X_train, batch_size=50)
@@ -862,12 +913,13 @@ with model:
     approx = pm.fit(40000)
 ```
 
-Note:
+^
 - training models on all data doesn't scale well. 
 - training on mini-batches of data (stochastic gradient descent) avoids local minima and can lead to faster convergence
 
 ---
-@title[**Gaussian processes**]
+
+# **Gaussian processes**
 
 A latent, non-linear function $$f(x)$$ is modeled as being multivariate normally distributed (a Gaussian Process):
 
@@ -878,42 +930,47 @@ $$f(x) \sim \mathcal{GP}(m(x), \, k(x, x'))$$
 
 ![300%](images/gp_pp.png)
 
-Note:
+^
 Gaussian Process regression is a non-parametric approach to regression or data fitting that assumes that observed data points are generated by some unknown latent function
 - distribution over functions
 - infinitely-parametric MVN
 
 ---
-@title[Quadratic]
 
-### $$k(x, x') = \mathrm{exp}\left[ -\frac{(x - x')Note:2}{2 \ellNote:2} \right]$$
+# Quadratic
+
+### $$k(x, x') = \mathrm{exp}\left[ -\frac{(x - x')^2}{2 \ell^2} \right]$$
 
 ![fit inline](images/quadratic.png)
 
 ---
-@title[Matern(3/2)]
 
-### $$k(x, x') = \left(1 + \frac{\sqrt{3(x - x')Note:2}}{\ell}\right)\mathrm{exp}\left[ - \frac{\sqrt{3(x - x')Note:2}}{\ell} \right]$$
+# Matern(3/2)
+
+### $$k(x, x') = \left(1 + \frac{\sqrt{3(x - x')^2}}{\ell}\right)\mathrm{exp}\left[ - \frac{\sqrt{3(x - x')^2}}{\ell} \right]$$
 
 ![fit inline](images/matern.png)
 
 ---
-@title[Cosine]
 
-### $$k(x, x') = \mathrm{cos}\left( \frac{||x - x'||}{ \ellNote:2} \right)$$
+# Cosine
+
+### $$k(x, x') = \mathrm{cos}\left( \frac{||x - x'||}{ \ell^2} \right)$$
 
 ![fit inline](images/cosine.png)
 
 ---
-@title[Gibbs]
 
-### $$k(x, x') = \sqrt{\frac{2\ell(x)\ell(x')}{\ellNote:2(x) + \ellNote:2(x')}} \mathrm{exp}\left[ -\frac{(x - x')Note:2}{\ellNote:2(x) + \ellNote:2(x')} \right]$$
+# Gibbs
+
+### $$k(x, x') = \sqrt{\frac{2\ell(x)\ell(x')}{\ell^2(x) + \ell^2(x')}} \mathrm{exp}\left[ -\frac{(x - x')^2}{\ell^2(x) + \ell^2(x')} \right]$$
 
 ![fit inline](images/gibbs.png)
 
 
 ---
-@title[Marginal GP]
+
+# Marginal GP
 
 
 ```python
@@ -933,7 +990,8 @@ with pm.Model() as model:
 ![150%](images/gp_post.png)
 
 ---
-@title[Posterior predictive samples]
+
+# Posterior predictive samples
 
 ```python
 
@@ -945,7 +1003,7 @@ with model:
     pred_samples = pm.sample_ppc([mp], vars=[f_pred], samples=2000)
 ```
 
-Note:
+^
 - new values from x=0 to x=20
 - add the GP conditional to the model, given the new X values
 
@@ -955,7 +1013,7 @@ Note:
 
 ---
 
-@title[Example: Psychosocial Determinants of Weight]
+### Example: Psychosocial Determinants of Weight
 
 - Modeling patient BMI trajectories with GP
 - Clustering using dynamic time warping
@@ -964,11 +1022,12 @@ Note:
 ![inline](images/gp_fit.png) ![inline 120%](images/clusters.png)
 
 ---
-@title[**Bayesian Machine Learning**]
+
+# **Bayesian Machine Learning**
 
 ![250%](images/bnn.png)
 
-Note:
+^
 Machine learning models are:
 	- data hungry
 	- poor at representing uncertainthy
@@ -978,15 +1037,15 @@ Machine learning models are:
 
 ---
 
-@title[Convolutional variational autoencoder[Note:+]]
+## Convolutional variational autoencoder[^+]
 
 ![inline](images/autoenc.jpg)
 
-[Note:+]: Photo: K. Frans
+[^+]: Photo: K. Frans
 
 ---
 
-@title[Convolutional variational autoencoder[Note:♌︎]]
+## Convolutional variational autoencoder[^♌︎]
 
 ```python
 import keras
@@ -1002,9 +1061,9 @@ class Decoder:
         return self._get_dec_func()(zs)
 ```
 
-[Note:♌︎]: Taku Yoshioka (c) 2016
+[^♌︎]: Taku Yoshioka (c) 2016
 
-Note:
+^
 - Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, Microsoft Cognitive Toolkit (CNTK), or Theano.
 - we define a probabilistic model, which combines the encoder and decoder.  
 - parameter objects are obtained as shared variables of Theano.
@@ -1026,7 +1085,7 @@ with pm.Model() as model:
                 observed=xs_t.ravel(), dtype='float32')
 ```
 
-Note:
+^
 Probabilistic model involves only two random variables; 
 - latent variable zs 
 - observation x.  
@@ -1052,20 +1111,21 @@ with model:
 
 ---
 
-@titleBayesian Deep Learning in PyMC3[Note:✧]]
+## Bayesian Deep Learning in PyMC3[^✧]
 
 ![inline](images/nn_uncertainty.png)
 
 ![right,fit](images/deep_nn.png)
 
-[Note:✧]: Thomas Wiecki 2016
+[^✧]: Thomas Wiecki 2016
 
-Note:
+^
 Plot of posterior predictive standard deviation
 
 
 ---
-@title[The Future]
+
+# The Future
 
 * Discontinuous HMC
 * Riemannian Manifold HMC
@@ -1074,12 +1134,13 @@ Plot of posterior predictive standard deviation
 
 ![](http://d.pr/i/WgAU+)
 
-Note:
+^
 - Riemannian manifold replaces Euclidean
 - 3 GSoC students!
 
 ---
-@title[Jupyter Notebook Gallery]
+
+# Jupyter Notebook Gallery
 
 ![right](http://d.pr/i/aEhKa+)
 
@@ -1087,7 +1148,7 @@ Note:
 
 ---
 
-@title[Other Probabilistic Programming Tools[Note:⚐]]
+## Other Probabilistic Programming Tools[^⚐]
 
 - Edward
 - GPy/GPFlow
@@ -1102,12 +1163,13 @@ Note:
 ![](images/book2.png)
 
 
-Note:
+^
 - Original content created by Cam Davidson-Pilon
 - ported to Python 3 and PyMC3 by Max Margenot and Thomas Wiecki
 
 ---
-@title[The PyMC3 Team]
+
+# The PyMC3 Team
 
 - Colin Carroll
 - Peadar Coyle
@@ -1123,7 +1185,7 @@ Note:
 - Thomas Wiecki
 - Taku Yoshioka
 
-Note:
+^
 Worth spending time to produce good software and support it. 
 
 
